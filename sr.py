@@ -19,22 +19,26 @@ with sr.Microphone() as source:
     # adjust for ambient noise
     r.adjust_for_ambient_noise(source)
 
-    while True:
-        print("Speak now or type 'stop' to exit:")
-        # record the audio
-        audio = r.listen(source)
+    try:
+        while True:
+            print("Speak now or type 'stop' to exit:")
+            # record the audio
+            audio = r.listen(source)
 
-        try:
-            # use the recognizer to convert speech to text
-            text = r.recognize_google(audio)
-            print("You said: " + text)
-            if text.lower() == "stop":
-                break
-            rnd_language = translate_to_symbols(text, symbol_mapping)
-            print("Rnd language: " + rnd_language)
-            # Return the completed text
-        except sr.UnknownValueError:
-            print("Could not understand audio")
-        except sr.RequestError as e:
-            print("Could not request results; {0}".format(e))
+            try:
+                # use the recognizer to convert speech to text
+                text = r.recognize_google(audio)
+                #print("You said: " + text)
+                if text.lower() == "stop":
+                    break
+                rnd_language = translate_to_symbols(text, symbol_mapping)
+                #print("Rnd language: " + rnd_language)
+                print(rnd_language)
+                # Return the completed text
+            except sr.UnknownValueError:
+                print("Could not understand audio")
+            except sr.RequestError as e:
+                print("Could not request results; {0}".format(e))
+    except KeyboardInterrupt:
+        print("Exited code")
 
