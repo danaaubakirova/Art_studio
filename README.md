@@ -1,6 +1,6 @@
 # Random Language Generator
 
-This Python script uses the speech_recognition library to convert speech to text and a symbol mapping dictionary to generate a "random language" version of the input text. The user can speak into a microphone or type a text input to be translated. The translation is performed by replacing each letter in the input text with a corresponding symbol defined in the symbol mapping dictionary.
+This Python script uses the **speech_recognition** library to convert speech to text and a symbol mapping dictionary to generate a "random language" version of the input text. The user can speak into a microphone or type a text input to be translated. The translation is performed by replacing each letter in the input text with a corresponding symbol defined in the symbol mapping dictionary.
 
 ## Installation
 
